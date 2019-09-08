@@ -80,7 +80,6 @@ class KittiDrawControl(panel.ControlPanel):
                                      bbox_plot.gl_color(GLColor.Green))
                 self.add_fspinbox("GTBoxAlpha", 0.0, 1.0, 0.05, 0.5)
                 self.add_checkbox("DrawDTBoxes")
-                
                 self.add_checkbox("DrawDTLabels")
                 self.add_checkbox("DTScoreAsAlpha")
                 # By Jim: increment minimum score for box display
@@ -1141,7 +1140,7 @@ class KittiViewer(QMainWindow):
             self.error("you must load infos and choose a existing image idx first.")
             return
         # Added printing execution of function by Jim
-        print('***** draw_detection ****')
+        # print('***** draw_detection ****')
         dt_box_color = self.w_config.get("DTBoxColor")[:3]
         dt_box_color = (*dt_box_color, self.w_config.get("DTBoxAlpha"))
 

@@ -915,3 +915,4 @@ def get_coco_eval_result(gt_annos,
         "result": result,
         "detail": detail,
     }
+

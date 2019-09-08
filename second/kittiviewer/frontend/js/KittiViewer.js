@@ -1,11 +1,11 @@
 var KittiViewer = function (pointCloud, logger, imageCanvas) {
-    this.rootPath = "/path/to/kitti";
-    this.infoPath = "/path/to/infos.pkl";
+    this.rootPath = "/store01/shared/kitti";
+    this.infoPath = "/store01/shared/kitti/kitti_infos_test.pkl";
     this.detPath = "/path/to/results.pkl";
-    this.backend = "http://127.0.0.1:16666";
-    this.checkpointPath = "/path/to/tckpt";
+    this.backend = "http://127.0.0.1:50000";
+    this.checkpointPath = "/home/jim/3d/second.nu.ki/pp_ped_only/voxelnet-111360.tckpt";
     this.datasetClassName = "KittiDataset"
-    this.configPath = "/path/to/config";
+    this.configPath = "/home/jim/3d/second.nu.ki/second/configs/pointpillars/pp_pretrain-kitti.config";
     this.drawDet = false;
     this.imageIndexes = [];
     this.imageIndex = 1;
@@ -150,8 +150,8 @@ KittiViewer.prototype = {
                 let label_with_score = [];
                 for (var i = 0; i < locs.length; ++i) {
                     // To reduce clutter, by Jim
-                    if (scores[i].toFixed(2)>=0.07) {
-                        label_with_score.push("xscore=" + scores[i].toFixed(2).toString()):
+                    if (scores[i].toFixed(2)>=0.10) {
+                        label_with_score.push("score=" + scores[i].toFixed(2).toString());
 		    } else {
                         label_with_score.push(" "); 
 		    }
@@ -269,8 +269,8 @@ KittiViewer.prototype = {
                         let label_with_score = [];
                         for (var i = 0; i < locs.length; ++i) {
                             // To reduce clutter, by Jim
-                            if (scores[i].toFixed(2)>=0.07) {
-                                label_with_score.push("xscore=" + scores[i].toFixed(2).toString()):
+                            if (scores[i].toFixed(2)>=0.10) {
+                                label_with_score.push("score=" + scores[i].toFixed(2).toString());
 		            } else {
                                 label_with_score.push(" "); 
 		            }

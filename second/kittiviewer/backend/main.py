@@ -173,9 +173,9 @@ def build_network_():
     net = build_network(config.model.second).to(device).float().eval()
 
     # changing restore mode [Start] - By Jim
-    torchplus.train.try_restore_latest_checkpoints(ckpt_path, [net])
+    # torchplus.train.try_restore_latest_checkpoints(ckpt_path, [net])
     # torchplus.train.restore(ckpt_path, net)
-    # net.load_state_dict(torch.load(ckpt_path))
+    net.load_state_dict(torch.load(ckpt_path))
     # changing restore mode [End] - By Jim
     eval_input_cfg = config.eval_input_reader
     BACKEND.dataset = input_reader_builder.build(
