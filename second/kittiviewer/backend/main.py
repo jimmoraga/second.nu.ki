@@ -216,7 +216,7 @@ def inference_by_idx():
     #Added printing response by Jim
     dt_scores = pred["scores"].detach().cpu().numpy()
     #Added response filtering by threshold by Jim
-    dt_score_filter = np.where(dt_scores>=0.10)
+    dt_score_filter = np.where(dt_scores>=0.12)
     print('Response filtered scores:', dt_scores[dt_score_filter])
     dt_scores = dt_scores[dt_score_filter]
     box3d = pred["box3d_lidar"].detach().cpu().numpy()
